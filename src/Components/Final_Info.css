@@ -1,0 +1,31 @@
+@font-face{
+    font-family:semi_bold;
+    src: url(../Montserrat/Montserrat-SemiBold.ttf)
+    }
+.label{
+    display: inline-block;
+    background-color: #DEDEDE;
+    color: white;
+    font-weight: bold;
+    padding: 30px 0;
+    font-family: semi_bold;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 1rem;
+    width: 150px;
+    height: 90px;
+    text-align: center;
+  }
+  h2{
+      font-family: semi_bold;
+  }
+  label{
+    font-family: semi_bold;
+}
+input{
+    font-family: semi_bold;
+}
+.width{
+    width:470px;
+}
