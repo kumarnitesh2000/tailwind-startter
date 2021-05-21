@@ -29,9 +29,18 @@ input{
 .width{
     width:470px;
 }
+.width-1{
+    width:270px;
+}
+.width-2{
+    width:300px;
+}
 .color{
 color:#868686;
 }
+.color{
+    background-color:#E9E9E9;
+    }
 .color-h{
     color: #2b2b2b;
 }
@@ -59,6 +68,11 @@ color:#868686;
     background-color: white;
     border-radius: 50%;
 }
+.logo-1{
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+}
 .card-owner{
     width:425px;
     height: 550px;
@@ -72,8 +86,8 @@ place-items: center;
     flex-direction: column;
 }
 .qr{
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
 }
 .pay_icon{
     width: 90px;
@@ -91,4 +105,16 @@ align-items: center;
 }
 .next{
     margin-top: -50px;
+}
+.margin-btn{
+    margin-top:-200px;
+}
+.height{
+    height: 300px;
+}
+.width-3{
+ width:400px;
+}
+.form{
+    border-radius:10px;
 }

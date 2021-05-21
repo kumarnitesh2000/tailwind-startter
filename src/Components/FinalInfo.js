@@ -7,11 +7,14 @@ import Amazon from "../images/amazon-icon-1.svg";
 import Upi from "../images/upi-ar21.svg";
 import Bhim from "../images/bhim-upi 1.svg";
 import QRCode from "react-qr-code";
-import Logo from "../images/ppp.png";
 import base_url from '../config';
+import Loding from './Loding'
+
 function FinalInfo(props) {
     const [qrval,setqrval] = React.useState("");
+    const [isSubmitted,setisSubmitted] = React.useState(false);
     const submitCard = () => {
+      setisSubmitted(!isSubmitted);
         const options = {
             method: 'POST',
             headers:{
@@ -27,6 +30,7 @@ function FinalInfo(props) {
                 window.open('/get/'+data.vpa, "_self");
             }else{
                 console.log('error');alert(data.message);
+                window.open('/', "_self");
             }
         })
     }
@@ -57,21 +61,22 @@ function FinalInfo(props) {
         let styleBox = '4px solid #e2e8f0';
         event.target.style.border = styleBox;
     } 
-    function getBase64(file) {
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        return reader.result;
-    }
+    const toBase64 = file => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
     const onFileChange = (event) => {
         const file = event.target.files[0];
-        console.log(file);
-        //const base64logo = getBase64(file);
-        //console.log(base64logo);
-        //props.setCardInfo({...props.cardInfo,logo:base64logo});
+        toBase64(file)
+        .then(base64String => {
+          props.setCardInfo({...props.cardInfo,logo:base64String})
+        })
     }
   return (
     <div className="finalInfo">
-      <div className="main sm:px-8 lg:px-48 md:px-24 mt-3 lg:flex sm:block justify-between items-center">
+      {!isSubmitted ? (<div className="main sm:px-8 lg:px-48 md:px-24 mt-3 lg:flex sm:block justify-between items-center">
         <div className="main_left">
           <h2 className="text-5xl color-h-1">Summary</h2>
           <div className="main_content">
@@ -152,8 +157,8 @@ function FinalInfo(props) {
         <div className="main_right">
           <div className="card-final p-4" style={{backgroundColor:props.cardInfo.bgColor}}>
             <div className="card-final-inner flex items-center">
-              <div className="circle mb-10 border-4">
-                <img src={props.cardInfo.logo} />
+              <div className="circle mb-10">
+                <img src={props.cardInfo.logo} className="logo-1" alt="logo"/>
               </div>
               <div className="card-owner">
                 <h3 className="font text-4xl mt-4 ">{props.payeeName}</h3>
@@ -174,7 +179,7 @@ function FinalInfo(props) {
             </div>
           </div>
         </div>
-      </div>
+      </div>) : (<div>creating your card.....</div>)}
     </div>
   );
 }
