@@ -4,7 +4,7 @@
     }
 .label{
     display: inline-block;
-    background-color: #DEDEDE;
+    background-color: #8ad86a;
     color: white;
     font-weight: bold;
     padding: 30px 0;
@@ -28,4 +28,67 @@ input{
 }
 .width{
     width:470px;
+}
+.color{
+color:#868686;
+}
+.color-h{
+    color: #2b2b2b;
+}
+.color-h-1{
+    color: rgb(17 24 39);
+}
+.box{
+    width: 40px;
+    height: 40px;
+}
+.font{
+    font-family:semi_bold;
+    src: url(../Montserrat/Montserrat-SemiBold.ttf)  
+}
+.card-final{
+    width: 550px;
+    height: 700px;
+    display: grid;
+    place-items: center;
+    border-radius:5px;
+}
+.circle{
+    width:100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+}
+.card-owner{
+    width:425px;
+    height: 550px;
+    background-color: white;
+margin-top: -60px;
+border-radius: 10px;
+display: grid;
+place-items: center;
+}
+.card-final-inner{
+    flex-direction: column;
+}
+.qr{
+    width: 250px;
+    height: 250px;
+}
+.pay_icon{
+    width: 90px;
+    height: 90px;
+    margin-left: 15px;
+}
+.pay_icon-1{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+}
+.other-pay{
+    flex-direction: column;
+align-items: center;
+}
+.next{
+    margin-top: -50px;
 }
